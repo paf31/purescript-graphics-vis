@@ -1,0 +1,9 @@
+{
+  "name": "psci-experiment",
+  "devDependencies": {
+    "purescript-psci-support": "^1.0.0"
+  },
+  "dependencies": {
+    "purescript-drawing": "^1.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+<html>
+<head>
+<script src="js/bundle.js"></script>
+<script>
+	window.onload = function() {
+		var socket = new WebSocket("ws://0.0.0.0:9160");
+		socket.onopen = function () {
+		  console.log("connected");
+			socket.onmessage = function (event) {
+				var replaced = event.data.replace(/require\("[^"]*"\)/g, function(s) {
+
+            return "PS['" + s.substring(12, s.length - 2) + "']";
+        });
+
+				var wrapped =
+            [ 'var module = {};'
+            , '(function(module) {'
+            , replaced
+            , '})(module);'
+            , 'return module.exports["$main"] && module.exports["$main"]();'
+            ].join('\n');
+
+				var result = new Function(wrapped)();
+
+				console.log(result);
+				socket.send(JSON.stringify(result));
+			};
+		};
+	};
+</script>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600"></canvas>
+</body>
+</html>
