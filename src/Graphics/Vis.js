@@ -1,15 +1,22 @@
 "use strict";
 
+// This will be a persistent reference to the canvas
+// we will use for rendering.
 var canvas;
 
+// Create the audio context and an analyser with
+// 64 entries.
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 var analyser = audioCtx.createAnalyser();
 analyser.fftSize = 64;
 
+// Create a buffer to hold the frequency data.
 var bufferLength = analyser.frequencyBinCount;
 var dataArray = new Uint8Array(bufferLength);
 
+// Connect the analyser to the microphone input
+// (may require user approval)
 navigator.webkitGetUserMedia({ audio: true },
   function(stream) {
     var source = audioCtx.createMediaStreamSource(stream);
@@ -18,6 +25,7 @@ navigator.webkitGetUserMedia({ audio: true },
     console.error(error);
   });
 
+// Create the canvas if it has not already been created.
 exports.createCanvas = function() {
   if (!canvas) {
     canvas = document.createElement("canvas");
@@ -28,8 +36,12 @@ exports.createCanvas = function() {
   return canvas;
 };
 
+// This is a persistent reference to the most recent
+// timer object used to render a scene.
 var lastInterval;
 
+// Animate a scene by replacing lastInterval with
+// a new timer which will render the new scene.
 exports.animateImpl = function(f) {
   return function() {
     lastInterval && window.clearInterval(lastInterval);
