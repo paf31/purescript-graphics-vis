@@ -21,3 +21,5 @@ A library for interactively creating graphics visualizations in the browser usin
     ```
 
 - Play some music and enjoy the show!
+
+![Example](images/example.gif)
