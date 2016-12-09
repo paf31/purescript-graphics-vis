@@ -1,9 +1,22 @@
 {
-  "name": "psci-experiment",
-  "devDependencies": {
-    "purescript-psci-support": "^1.0.0"
+  "name": "purescript-graphics-vis",
+  "authors": [
+    "Phil Freeman <paf31@cantab.net>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/paf31/purescript-graphics-vis.git"
   },
   "dependencies": {
-    "purescript-drawing": "^1.0.0"
+    "purescript-drawing": "^2.1.0",
+    "purescript-psci-support": "^2.0.0"
   }
 }

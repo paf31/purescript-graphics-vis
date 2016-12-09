@@ -1,15 +1,23 @@
-# psci-experiment
+# purescript-graphics-vis
 
-An experiment to evaluate PSCi expressions in the browser.
+A library for interactively creating graphics visualizations in the browser using PSCi and the WebAudio and Canvas APIs.
 
 ## Instructions
 
-- Install the latest (>= 0.9.2) PSCi.
-- Start PSCi with the `--port` option: `pulp psci --port 8080`
+- Install the latest (>= 0.10.2) PSCi.
+- Start PSCi with the `--port` option: `pulp psci -- --port 8080`
 - Open `http://localhost:8080/`
 - Evaluate expressions in PSCi:
 
-```purescript
-> import Graphics
-> animate \t _ -> filled (fillColor (hsl (t / 10.0) 0.75 0.5)) (circle 50.0 50.0 50.0)
-```
+    ```text
+    PSCi, version 0.10.2
+    Type :? for help
+
+    Bundling Javascript...
+    Serving http://localhost:8080/. Waiting for connections...
+
+    > import Graphics.Vis.Example
+    > animate scene
+    ```
+
+- Play some music and enjoy the show!
