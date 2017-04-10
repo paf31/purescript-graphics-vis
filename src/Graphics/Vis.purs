@@ -44,10 +44,10 @@ graphics scene' = do
   context <- getContext2D canvas
   width <- getCanvasWidth canvas
   height <- getCanvasHeight canvas
-  save context
-  setFillStyle "rgba(255,255,255,0.1)" context
-  fillRect context { x: 0.0, y: 0.0, w: width, h: height }
-  restore context
+  _ <- save context
+  _ <- setFillStyle "rgba(255,255,255,0.1)" context
+  _ <- fillRect context { x: 0.0, y: 0.0, w: width, h: height }
+  _ <- restore context
   render context scene'
 
 -- | Render an animation which depends on the current time
