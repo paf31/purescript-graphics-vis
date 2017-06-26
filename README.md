@@ -2,6 +2,8 @@
 
 A library for interactively creating graphics visualizations in the browser using PSCi and the WebAudio and Canvas APIs.
 
+Note: Internet Explorer and Safari are [not currently supported](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia#Browser_compatibility).
+
 ## Instructions
 
 - Install the latest (>= 0.10.2) PSCi.
