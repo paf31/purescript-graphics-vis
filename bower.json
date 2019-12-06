@@ -16,7 +16,7 @@
     "url": "git://github.com/paf31/purescript-graphics-vis.git"
   },
   "dependencies": {
-    "purescript-drawing": "^3.0.0",
-    "purescript-psci-support": "^3.0.0"
+    "purescript-drawing": "^4.0.0",
+    "purescript-psci-support": "^4.0.0"
   }
 }
